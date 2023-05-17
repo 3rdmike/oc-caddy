@@ -1,0 +1,54 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  name: caddy-deploy
+  namespace: my-namespace
+  labels:
+    app: caddy-deploy
+spec:
+  strategy:
+    type: Rolling
+  replicas: 1
+  selector:
+    app: caddy-deploy
+  template:
+    metadata:
+      labels:
+        app: caddy-deploy
+    spec:
+      volumes:
+        - name: app-volume
+          persistentVolumeClaim:
+            claimName: caddy-pvc
+        - name: caddy-conf
+          configMap:
+            name: caddy-configmap
+            items:
+              - key: caddifile
+                path: Caddyfile
+            defaultMode: 420
+      containers:
+        - resources:
+            limits:
+              cpu: 500m
+              memory: 2Gi
+            requests:
+              cpu: 50m
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          name: www
+          command:
+            - caddy
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: caddy-conf
+              mountPath: /conf
+            - name: app-volume
+              mountPath: /data
+          terminationMessagePolicy: File
+          image: >-
+            image-registry.apps.silver.devops.gov.bc.ca/988040-tools/caddy:2.4.1-alpine
+          args:
+            - run
+            - '--config'
+            - /conf/Caddyfile
