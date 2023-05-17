@@ -1,0 +1,12 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: caddy-configmap
+  namespace: my-namespace
+  labels:
+    app: caddy
+data:
+  caddifile: |-
+    :8080
+    root * /data
+    file_server

@@ -1,0 +1,19 @@
+# this file is directly copied from OpenShift and NOT MODIFIED
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: caddy-route
+  namespace: my-namespace
+  labels:
+    app: caddy
+  annotations:
+    haproxy.router.openshift.io/ip_whitelist: 0.0.0.0 0.0.0.0/0
+spec:
+  host: caddy-route-my-namespace.apps.silver.devops.gov.bc.ca
+  to:
+    kind: Service
+    name: caddy-service
+    weight: 100
+  port:
+    targetPort: caddy-port
+

@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: caddy-pvc
+  namespace: my-namespace
+  finalizers:
+    - kubernetes.io/pvc-protection
+  labels:
+    app: caddy-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: netapp-file-standard
+  volumeMode: Filesystem

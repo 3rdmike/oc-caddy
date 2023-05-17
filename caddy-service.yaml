@@ -1,0 +1,19 @@
+# this file is copied from Open Shift but is modified to select
+# the correct pod (the original file selects no pod)
+# many names and labels are not changed
+kind: Service
+apiVersion: v1
+metadata:
+  name: caddy-service
+  namespace: my-namespace
+  labels:
+    app: caddy
+spec:
+  ports:
+    - name: caddy-port
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  selector:
+    deploymentconfig: caddy-deploy
+
