@@ -3,13 +3,13 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: caddy-route
-  namespace: my-namespace
+  namespace: c2a206-test
   labels:
     app: caddy
   annotations:
     haproxy.router.openshift.io/ip_whitelist: 0.0.0.0 0.0.0.0/0
 spec:
-  host: caddy-route-my-namespace.apps.silver.devops.gov.bc.ca
+  host: caddy-route-c2a206-test.apps.silver.devops.gov.bc.ca
   to:
     kind: Service
     name: caddy-service

@@ -5,7 +5,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: caddy-service
-  namespace: my-namespace
+  namespace: c2a206-test
   labels:
     app: caddy
 spec:
