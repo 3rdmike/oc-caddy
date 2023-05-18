@@ -1,7 +1,5 @@
-# oc-caddy
+# Open Shift Caddy data server template YAML files
 
-
--- Open Shift Caddy data server template YAML files --
 
 This is a collection of template YAML files to quickly build up a caddy data server in an Open Shift cluster. The data server is consisted of a Caddy pod, a service object, and a route object for restricted external access (if applicable). The objects are defined in YAML files and can be applied to a cluster on the run.
 
