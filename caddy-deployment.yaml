@@ -2,7 +2,7 @@ kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
   name: caddy-deploy
-  namespace: c2a206-test
+  namespace: MY-WOKSPACE
   labels:
     app: caddy-deploy
 spec:

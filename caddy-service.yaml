@@ -5,7 +5,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: caddy-service
-  namespace: c2a206-test
+  namespace: MY-WOKSPACE
   labels:
     app: caddy
 spec:

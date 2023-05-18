@@ -2,7 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: caddy-pvc
-  namespace: c2a206-test
+  namespace: MY-WOKSPACE
   finalizers:
     - kubernetes.io/pvc-protection
   labels:

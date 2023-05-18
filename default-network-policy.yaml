@@ -6,7 +6,7 @@ metadata:
   
   generation: 1
   
-  namespace: c2a206-test
+  namespace: MY-WOKSPACE
  
 spec:
   podSelector: {}

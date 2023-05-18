@@ -3,7 +3,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: caddy-route
-  namespace: c2a206-test
+  namespace: MY-WOKSPACE
   labels:
     app: caddy
   annotations:
